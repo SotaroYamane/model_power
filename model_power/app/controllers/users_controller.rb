@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  require 'pp'
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -11,7 +12,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    puts @users
   end
 
   # GET /users/new
@@ -30,6 +30,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.uid
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -66,15 +67,11 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find_by_uid(@current_user)
+      @user = User.find_by_uid(@current_user.uid)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:uid, :sex, :age, :name, :password, :admin)
-    end
-
-    def user_params
-      params.require(:user).permit(:uid, :password, :password_confirmation)
     end
 end

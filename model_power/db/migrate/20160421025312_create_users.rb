@@ -2,6 +2,7 @@ class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
       t.string :uid
+      add_index :uid, :users, :unique=>true
       t.boolean :sex
       t.integer :age
       t.string :name
