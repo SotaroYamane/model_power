@@ -12,28 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :uid %><br>
+    <%= f.label :uid,"User ID" %><br>
     <%= f.text_field :uid %>
   </div>
   <div class="field">
-    <%= f.label :sex %><br>
-    <%= f.check_box :sex %>
+    <%= f.label :password, "Password" %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.radio_button :sex, "0" %><text>女性</text><%= f.radio_button :sex, "1" %><text>男性</text>
   </div>
   <div class="field">
     <%= f.label :age %><br>
-    <%= f.text_field :age %>
+    <%= f.number_field :age %>
   </div>
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name, "ニックネーム" %><br>
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :admin %><br>
-    <%= f.check_box :admin %>
   </div>
   <div class="actions">
     <%= f.submit %>
