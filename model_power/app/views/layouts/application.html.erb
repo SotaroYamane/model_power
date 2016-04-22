@@ -7,12 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if current_user == nil %>
-    <%= link_to "ログイン", login_path %>
-  <% else %>
-    <%= link_to 'ログアウト', login_path, :confirm => 'ログアウトしますか？', :method => :delete %>
-  <% end %>
-
 <nav class="navbar navbar-inverse" role="navigation">
     <div class="container">
 
@@ -30,13 +24,19 @@
         <!-- ナビゲーションメニュー -->
         <div class="collapse navbar-collapse " id="navbar-menu">
             <ul class="nav navbar-nav">
-                <li><a href="#">マイページ</a></li>
-                <li><a href="#">問題</a></li>
+                <li><%= link_to "マイページ", users_path %></li>
+                <li><%= link_to "問題", questions_path %></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">ログアウト</a></li>
-            <ul>
+                <li>
+                  <% if current_user == nil %>
+                    <%= link_to "ログイン", login_path %>
+                    <% else %>
+                    <%= link_to 'ログアウト', login_path, :confirm => 'ログアウトしますか？', :method => :delete %>
+                    <% end %>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
