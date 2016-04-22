@@ -3,7 +3,7 @@ class CreateResults < ActiveRecord::Migration
     create_table :results do |t|
       t.integer :qid
       t.string :uid
-      t.integer :ans
+      t.string :ans
 
       t.timestamps null: false
     end

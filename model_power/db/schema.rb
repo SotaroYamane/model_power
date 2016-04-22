@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160421032335) do
   create_table "results", force: :cascade do |t|
     t.integer  "qid"
     t.string   "uid"
-    t.integer  "ans"
+    t.string   "ans"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -6,8 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Result.create(qid: 1, uid: "sotaro", ans: 1)
-Result.create(qid: 2, uid: "sotaro", ans: 1)
+Result.create(qid: 1, uid: "sotaro", ans: "a")
+Result.create(qid: 2, uid: "sotaro", ans: "b")
+Result.create(qid: 2, uid: "Yamane", ans: "c")
 
 Question.create(a: "path_to_A", b:"path_to_B", c:"path_to_C", d:"path_to_D", z:"path_to_Z")
 Question.create(a: "path_to_A", b:"path_to_B", c:"path_to_C", d:"path_to_D", z:"path_to_Z_その2")
