@@ -13,6 +13,40 @@
     <%= link_to 'ログアウト', login_path, :confirm => 'ログアウトしますか？', :method => :delete %>
   <% end %>
 
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+
+        <!-- モバイル表示用の省略メニュー -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle"
+            data-toggle="collapse" data-target="#navbar-menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <p class="navbar-brand" href="#">模範力測定</p>
+        </div>
+
+        <!-- ナビゲーションメニュー -->
+        <div class="collapse navbar-collapse " id="navbar-menu">
+            <ul class="nav navbar-nav">
+                <li><a href="#">マイページ</a></li>
+                <li><a href="#">問題</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">ログアウト</a></li>
+            <ul>
+        </div>
+    </div>
+</nav>
+
+<!-- 5. jQueryの読み込み-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- 6. Bootstrapで使うJavaScriptの読み込み-->
+<script src="js/bootstrap.min.js"></script>
+
 <%= yield %>
 
 </body>
