@@ -1,14 +1,5 @@
 class CreateQuestions < ActiveRecord::Migration
   def change
-    create_table :questions do |t|
-      t.string :qid
-      t.string :a
-      t.string :b
-      t.string :c
-      t.string :d
-      t.string :z
-
-      t.timestamps null: false
-    end
+    execute "CREATE TABLE questions (qid INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, a STRING, b STRING, c STRING, d STRING, z STRING )"
   end
 end
