@@ -8,3 +8,6 @@
 
 Result.create(qid: 1, uid: "sotaro", ans: 1)
 Result.create(qid: 2, uid: "sotaro", ans: 1)
+
+Question.create(a: "path_to_A", b:"path_to_B", c:"path_to_C", d:"path_to_D", z:"path_to_Z")
+Question.create(a: "path_to_A", b:"path_to_B", c:"path_to_C", d:"path_to_D", z:"path_to_Z_その2")
