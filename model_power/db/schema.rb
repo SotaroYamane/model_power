@@ -24,15 +24,7 @@ ActiveRecord::Schema.define(version: 20160421032335) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "uid"
-    t.boolean  "sex"
-    t.integer  "age"
-    t.string   "name"
-    t.string   "password_digest", null: false
-    t.boolean  "admin"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
+# Could not dump table "users" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
 end
