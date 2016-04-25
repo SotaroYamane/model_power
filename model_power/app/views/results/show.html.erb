@@ -1,24 +1,8 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 <p id="notice"><%= notice %></p>
+<h1>Q.<%= @result.qid %></h1>
+<h2>アナタの回答は<%= @result.ans %>です。</h2>
 
-<p>
-  <strong>Rid:</strong>
-  <%= @result.rid %>
-</p>
+<%= pie_chart @graph_data %>
 
-<p>
-  <strong>Qid:</strong>
-  <%= @result.qid %>
-</p>
-
-<p>
-  <strong>Uid:</strong>
-  <%= @result.uid %>
-</p>
-
-<p>
-  <strong>Ans:</strong>
-  <%= @result.ans %>
-</p>
-
-<%= link_to 'Edit', edit_result_path(@result) %> |
-<%= link_to 'Back', results_path %>
+<%= link_to 'Back', users_path %>

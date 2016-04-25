@@ -1,4 +1,5 @@
 class ResultsController < ApplicationController
+  require 'pp'
   before_action :set_result, only: [:show, :edit, :update, :destroy]
 
   # GET /results
@@ -10,6 +11,14 @@ class ResultsController < ApplicationController
   # GET /results/1
   # GET /results/1.json
   def show
+    q_result = Result.find_by_sql(["select ans from results where qid = ?", @result.qid])
+    @graph_data = Hash.new
+    @graph_data = {"a" => 0, "b" => 0, "c" => 0, "d" => 0}
+
+    q_result.each do |res|
+      @graph_data[res.ans] += 1
+    end
+
   end
 
   # GET /results/new
