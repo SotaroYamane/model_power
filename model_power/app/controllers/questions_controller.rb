@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
         format.html { render :new }
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
-    end 
+    end
   end
 
   # GET /questions/1/edit
