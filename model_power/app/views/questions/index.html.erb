@@ -19,14 +19,14 @@
     <% @questions.each do |question| %>
       <tr>
         <td><%= question.qid %></td>
-        <td><%= question.1 %></td>
-        <td><%= question.2 %></td>
-        <td><%= question.3 %></td>
-        <td><%= question.4 %></td>
         <td><%= question.a %></td>
-        <td><%= link_to 'Show', question %></td>
+        <td><%= question.b %></td>
+        <td><%= question.c %></td>
+        <td><%= question.d %></td>
+        <td><%= question.z %></td>
+        <!-- <td><%= link_to 'Show', question %></td>
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Question', new_question_path %>
+<!-- <%= link_to 'New Question', new_question_path %> -->
