@@ -1,6 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<table>
+  <thead>
+    <tr>
+      <th>Qid</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>A</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @question.qid %></td>
+        <td><%= image_tag(@question.a) %></td>
+        <td><%= image_tag(@question.b) %></td>
+        <td><%= image_tag(@question.c) %></td>
+        <td><%= image_tag(@question.d) %></td>
+        <td><%= image_tag(@question.z) %></td>
+        <td><%= link_to 'Show', @question %></td>
+      </tr>
+  </tbody>
+</table>
+
+<!-- <p>
   <strong>Qid:</strong>
   <%= @question.qid %>
 </p>
@@ -28,7 +54,7 @@
 <p>
   <strong>A:</strong>
   <%= @question.z %>
-</p>
+</p> -->
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
