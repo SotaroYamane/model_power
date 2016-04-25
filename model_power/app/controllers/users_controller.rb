@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @model_power = 0
+    model_power = 0
     user_results = Result.find_by_sql(["select * from results where uid = ?", @current_user.uid])
     all_results = Result.all
     q_length = Question.count
@@ -27,14 +27,14 @@ class UsersController < ApplicationController
 
 #-----標準力測定-----
     user_results.each do |result|
-      @model_power += cal_big[result.qid][result.ans]
+      model_power += cal_big[result.qid][result.ans]
     end
-    @user.score = @model_power
+    @user.score = model_power
     @user.save
 
 #-----ランキング-----
 #上位20人 + 自分の順位
-    @all_rank = User.find_by_sql(["select uid, score from users order by score DESC LIMIT 20"])
+    @all_rank = User.find_by_sql(["select name, score from users order by score DESC LIMIT 20"])
     @user_rank = User.find_by_sql(["select uid, score from users where score >= ?", @user.score]).count
 
 

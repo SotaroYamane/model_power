@@ -1,6 +1,23 @@
-Hello
+<h1><%= @user.name %>さんのマイページ</h1>
+<h2>アナタの標準力は<%= @user.score %>万！！</h2>
+<h3>
+<ul>
+  <li>ID:<%= @user.uid %></li>
+  <li>年齢:<%= @user.age %></li>
+  <li>性別:
+    <% if @user.sex %>
+      男性
+    <% else %>
+      女性
+    <% end %>
+  </li>
+</ul>
+</h3>
 
-<%= @model_power %><br>
-
-<%= @all_rank %><br>
-<%= @user_rank %>
+<h2>ユーザランキング
+現在<%= @user_rank %>位！</h2>
+<ul>
+  <% @all_rank.each do |rank| %>
+    <li><%= rank.name %> <%= rank.score %>万</li>
+  <% end %>
+</ul>
