@@ -11,6 +11,6 @@ Result.create(qid: 2, uid: "sotaro", ans: "b")
 Result.create(qid: 2, uid: "Yamane", ans: "c")
 
 for num in [*1..10] do
-	Question.create(a: "#{num}/1.jpg", b:"#{num}/2.jpg", c:"#{num}/3.jpg", d:"#{num}/4.jpg", z:"#{num}/a.jpg")
-	# Question.create(a: "2/1.jpg", b:"2/2.jpg", c:"2/3.jpg", d:"2/4.jpg", z:"2/a.jpg")
+	# Question.create(a: "#{num}/1.jpg", b:"#{num}/2.jpg", c:"#{num}/3.jpg", d:"#{num}/4.jpg", y:"", z:"#{num}/a.jpg")
+	Question.create(a: "#{num}/1.jpg", b:"#{num}/2.jpg", c:"#{num}/3.jpg", d:"#{num}/4.jpg", y:"左の画像に合う画像を下の中から一つ選びなさい", z:"#{num}/a.jpg")
 end

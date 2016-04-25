@@ -15,7 +15,17 @@ class QuestionsController < ApplicationController
 
   # GET /questions/new
   def new
-    @question = Question.new
+    @result = Result.new(:qid => params[:qid], :uid => @current_user, :ans => params[:ans])
+
+    respond_to do |format|
+      if @result.save
+        format.html { redirect_to @result, notice: 'Result was successfully created.' }
+        format.json { render :show, status: :created, location: @question }
+      else
+        format.html { render :new }
+        format.json { render json: @question.errors, status: :unprocessable_entity }
+      end
+    end 
   end
 
   # GET /questions/1/edit
@@ -25,7 +35,7 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(question_params)
+    @result = Result.new(question_params)
 
     respond_to do |format|
       if @question.save

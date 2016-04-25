@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>問題番号</h1>
+<h1>問題選択</h1>
 
 <table>
 <!--   <thead>
@@ -16,16 +16,12 @@
   </thead> -->
 
   <tbody>
-      <body { font-size: 200%; }>
     <% @questions.each do |question| %>
         <tr>
           <td><%= link_to question.qid, question %></td>
         </tr>
-      </body>
     <% end %>
   </tbody>
 </table>
-
-<br>
 
 <!-- <%= link_to 'New Question', new_question_path %> -->
