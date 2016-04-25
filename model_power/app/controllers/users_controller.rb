@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     cal_small = Hash.new
     cal_small = {"a" => 0, "b" => 0, "c" => 0, "d" => 0}
 
+#-----Array + Hashの入れ物作成-----
     i = 1
     while i < q_length + 1
       cal_big.insert(i, cal_small)
@@ -30,6 +31,11 @@ class UsersController < ApplicationController
     end
     @user.score = @model_power
     @user.save
+
+#-----ランキング-----
+#上位20人 + 自分の順位
+    @all_rank = User.find_by_sql(["select uid, score from users order by score DESC LIMIT 20"])
+    @user_rank = User.find_by_sql(["select uid, score from users where score >= ?", @user.score]).count
 
 
   end
