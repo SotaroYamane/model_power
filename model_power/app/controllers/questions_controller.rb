@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions/new
   def new
-    @result = Result.new(:qid => params[:qid], :uid => @current_user, :ans => params[:ans])
+    @result = Result.new(:qid => params[:qid], :uid => @current_user.uid, :ans => params[:ans])
 
     respond_to do |format|
       if @result.save
