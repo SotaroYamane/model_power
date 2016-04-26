@@ -2,22 +2,12 @@
 
 <h1>問題選択</h1>
 
-<table>
-  <tbody>
-    <% @questions.each do |question| %>
-      <% if @answered.value?(question.qid) == true then %>
-        <tr>
-          <td>
-            <%= link_to question.qid, :controller => 'results', :action => 'show', :id => question.qid %>
-          </td>
-        </tr>
-      <% else %>
-        <tr>
-          <td><%= link_to question.qid, question %></td>
-        </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
+<% @questions.each do |question| %>
+  <% if @answered.value?(question.qid) == true then %>
+      <p><%= link_to question.qid, :controller => 'results', :action => 'show', :id => question.qid %></p>
+  <% else %>
+      <p><%= link_to question.qid, question %></p>
+  <% end %>
+<% end %>
 
 <!-- <%= link_to 'New Question', new_question_path %> -->
