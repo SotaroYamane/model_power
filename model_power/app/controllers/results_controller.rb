@@ -1,4 +1,5 @@
 class ResultsController < ApplicationController
+  require 'pp'
   before_action :set_result, only: [:show, :edit, :update, :destroy]
 
   # GET /results
@@ -14,8 +15,19 @@ class ResultsController < ApplicationController
     @graph_data = Hash.new
     @graph_data = {"a" => 0, "b" => 0, "c" => 0, "d" => 0}
 
+
     q_result.each do |res|
       @graph_data[res.ans] += 1
+    end
+
+    xAxis_categories = ['a', 'b', 'c', 'd']
+    data             = [['a', @graph_data["a"]],
+                        ['b', @graph_data["b"]],
+                        ['c', @graph_data["c"]],
+                        ['d', @graph_data["d"]]]
+    @graph = LazyHighCharts::HighChart.new('graph') do |f|
+      f.xAxis(categories: ['a', 'b', 'c', 'd'])
+      f.series(name: '投票数', data: data, type: 'pie')
     end
 
   end
