@@ -11,7 +11,7 @@ class ResultsController < ApplicationController
   # GET /results/1
   # GET /results/1.json
   def show
-    q_result = Result.find_by_sql(["select ans from results where qid = ?", @result.qid])
+    q_result = Result.find_by_sql(["select ans from results where qid = ?", @result[0].qid])
     @graph_data = Hash.new
     @graph_data = {"a" => 0, "b" => 0, "c" => 0, "d" => 0}
 
@@ -73,7 +73,7 @@ class ResultsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_result
-      @result = Result.find(params[:id])
+      @result = Result.find_by_sql(["select * from results where qid = ? AND uid = ?", params[:id], @current_user.uid])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

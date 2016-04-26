@@ -5,7 +5,7 @@
 <table>
   <tbody>
     <% @questions.each do |question| %>
-      <% if @answered.value?(question.id) == true then %>
+      <% if @answered.value?(question.qid) == true then %>
         <tr>
           <td>
             <%= link_to question.qid, :controller => 'results', :action => 'show', :id => question.qid %>

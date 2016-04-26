@@ -13,9 +13,6 @@ class QuestionsController < ApplicationController
       @answered.store(x, ans.qid)
       x += 1
     end
-    pp @answered_list
-    pp @answered
-    pp "-----------------------------------------------------------"
   end
 
   # GET /questions/1
@@ -27,15 +24,8 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @result = Result.new(:qid => params[:qid], :uid => @current_user.uid, :ans => params[:ans])
-
-    respond_to do |format|
-      if @result.save
-        format.html { redirect_to @result, notice: 'Result was successfully created.' }
-        format.json { render :show, status: :created, location: @question }
-      else
-        format.html { render :new }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
+    if @result.save
+      redirect_to :controller => "results", :action => "show" ,:id => @result.qid
     end
   end
 
@@ -46,17 +36,7 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @result = Result.new(question_params)
 
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render :show, status: :created, location: @question }
-      else
-        format.html { render :new }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /questions/1
