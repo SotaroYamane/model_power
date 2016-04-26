@@ -11,13 +11,11 @@ class UsersController < ApplicationController
     all_results = Result.all
     q_length = Question.count
     cal_big = Array.new
-    cal_small = Hash.new
-    cal_small = {"a" => 0, "b" => 0, "c" => 0, "d" => 0}
 
 #-----Array + Hashの入れ物作成-----
     i = 1
     while i < q_length + 1
-      cal_big.insert(i, cal_small)
+      cal_big.insert(i, {"a" => 0, "b" => 0, "c" => 0, "d" => 0})
       i += 1
     end
 #-----全部の集計-----

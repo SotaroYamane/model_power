@@ -1,8 +1,7 @@
-<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 <p id="notice"><%= notice %></p>
 <h1>Q.<%= @result[0].qid %></h1>
 <h2>アナタの回答は<%= @result[0].ans %>です。</h2>
 
-<%= pie_chart @graph_data %>
+
 
 <%= link_to 'Back', questions_path %>

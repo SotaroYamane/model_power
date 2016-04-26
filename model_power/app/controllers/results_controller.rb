@@ -1,5 +1,4 @@
 class ResultsController < ApplicationController
-  require 'pp'
   before_action :set_result, only: [:show, :edit, :update, :destroy]
 
   # GET /results
