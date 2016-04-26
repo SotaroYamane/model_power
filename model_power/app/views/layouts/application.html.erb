@@ -3,6 +3,7 @@
 <head>
   <title>ModelPower</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "css_hover", :media => "all" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -26,7 +27,7 @@
             <ul class="nav navbar-nav">
               <% if @current_user %>
                 <li><%= link_to "マイページ", users_path %></li>
-                <li><%= link_to "問題と結果", questions_path %></li>
+                <li><%= link_to "問題選択", questions_path %></li>
               <% end %>
             </ul>
 

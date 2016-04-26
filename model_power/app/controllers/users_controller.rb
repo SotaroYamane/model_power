@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :unless_user
+  before_action :unless_user, only:[:index]
   before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /users
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
       begin
         if @user.save
           session[:user_id] = @user.uid
-          format.html { redirect_to @user, notice: 'ようこそ！' }
+          format.html { redirect_to users_path, notice: 'ようこそ！' }
           format.json { render :show, status: :created, location: @user }
         else
           format.html { render :new }

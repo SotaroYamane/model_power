@@ -3,15 +3,16 @@
 <h1>問題選択</h1>
 
 <% @questions.each do |question| %>
-  <% if question.qid == 1 then true %>
-    <p>
-  <% elsif question.qid == 6 then true %>
-    <p></p>
-  <% end %>
   
   <% if @answered.value?(question.qid) == true then %>
-      <%= link_to image_tag(question.z), :controller => 'results', :action => 'show', :id => question.qid %>
+    <div class="view fourth-effect">  
+      <a href="#" title="Full Image"><%= link_to image_tag(question.z), :controller => 'results', :action => 'show', :id => question.qid %></a>
+      <div class="mask"></div>
+    </div>
   <% else %>
-      <%= link_to image_tag(question.z), question %>
+    <div class="view fourth-effect">  
+      <a href="#" title="Full Image"><%= link_to image_tag(question.z), question %></a>
+      <div class="mask"></div>
+    </div>
   <% end %>
 <% end %>

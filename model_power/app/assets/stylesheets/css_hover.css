@@ -1,0 +1,60 @@
+.view {
+   width: 130px;
+   height: 160px;
+   margin: 5px;
+   float: left;
+   border: 5px solid #fff;
+   overflow: hidden;
+   position: relative;
+   text-align: center;
+   box-shadow: 0px 0px 5px #aaa;
+   cursor: default;
+}
+
+.view .mask, .view .content {
+   width: 300px;
+   height: 200px;
+   position: absolute;
+   overflow: hidden;
+   top: 0;
+   left: 0;
+}
+
+.view img {
+   display: block;
+   position: relative;
+}
+
+.view a.info {
+   background:url(../img/link.png) center no-repeat;
+   display: inline-block;
+   text-decoration: none;
+   padding:0;
+   text-indent:-9999px;
+   width:20px;
+   height:20px;
+}
+
+.fourth-effect .mask {
+   position:absolute; /* Center the mask */
+   top:50px;
+   left:100px;
+   cursor:pointer;
+   border-radius: 50px;
+   border-width: 50px;
+   display: inline-block;
+   height: 100px;
+   width: 100px;
+   border: 50px solid rgba(0, 0, 0, 0.7);
+   box-sizing:border-box;
+   opacity:1;
+   visibility:visible;
+   transform:scale(4);
+   transition:all 0.3s ease-in-out;
+}
+
+.fourth-effect:hover .mask {
+   opacity: 0;
+   border:0px solid rgba(0,0,0,0.7);
+   visibility:hidden;
+}
