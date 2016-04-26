@@ -17,14 +17,14 @@
 <table>
   <tbody>
     <tr>
-      <td><%= link_to image_tag(@question.a), :controller => 'questions', :action => 'new', :qid => @question.qid, :ans => "a" %></td>
-      <td><%= link_to image_tag(@question.b), :controller => 'questions', :action => 'new', :qid => @question.qid, :ans => "b" %></td>
-      <td><%= link_to image_tag(@question.c), :controller => 'questions', :action => 'new', :qid => @question.qid, :ans => "c" %></td>
-      <td><%= link_to image_tag(@question.d), :controller => 'questions', :action => 'new', :qid => @question.qid, :ans => "d" %></td>
+      <td><div id = "img"><%= link_to image_tag(@question.a), :controller => 'questions', :action => 'new', :qid => @question.qid, :ans => "a" %></div></td>
+      <td><div id = "img"><%= link_to image_tag(@question.b), :controller => 'questions', :action => 'new', :qid => @question.qid, :ans => "b" %></div></td>
+      <td><div id = "img"><%= link_to image_tag(@question.c), :controller => 'questions', :action => 'new', :qid => @question.qid, :ans => "c" %></div></td>
+      <td><div id = "img"><%= link_to image_tag(@question.d), :controller => 'questions', :action => 'new', :qid => @question.qid, :ans => "d" %></div></td>
     </tr>
   </tbody>
 </table>
 
 <br>
 <br>
-<%= link_to '問題選択に戻る', questions_path %>
+<h2><%= link_to '問題選択に戻る', questions_path %></h2>

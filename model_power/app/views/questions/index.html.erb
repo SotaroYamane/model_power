@@ -1,18 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class = "all">
 
 <h1>問題選択</h1>
 
 <% @questions.each do |question| %>
-  
+
   <% if @answered.value?(question.qid) == true then %>
-    <div class="view fourth-effect">  
+    <div class="view fourth-effect">
       <a href="#" title="Full Image"><%= link_to image_tag(question.z), :controller => 'results', :action => 'show', :id => question.qid %></a>
       <div class="mask"></div>
     </div>
   <% else %>
-    <div class="view fourth-effect">  
+    <div class="view fourth-effect">
       <a href="#" title="Full Image"><%= link_to image_tag(question.z), question %></a>
       <div class="mask"></div>
     </div>
   <% end %>
 <% end %>
+</div>

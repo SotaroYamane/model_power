@@ -1,3 +1,7 @@
+body {
+  background-color: #f2f7f2;
+}
+
 /*-----login-----*/
 .login {
   text-align:center;
@@ -8,25 +12,28 @@
   margin-left: auto;
 }
 
+.top_pre pre{
+  font-size: medium;
+}
+
 /*-----user_page-----*/
 .all {
-  background-color: #e0f9e1;
+  background-color: #f2f7f2;
 }
 
 #title {
-  width: 400px;
   margin: 0;
-  background-color: #e0f9e1;
+  background-color: #f2f7f2;
 }
 #title h1{
-  width: 400px;
+  text-align: center;
 }
 
 #user_info {
   width: 200px;
   margin-left: auto;
   margin-right: 0px;
-  background-color: #e0f9e1
+  background-color: #f2f7f2
 }
 #user_info ul{
   width: 200px;
@@ -38,11 +45,11 @@
 }
 
 .rank {
-  background-color: #a8f7d1;
+  background-color: #dbe4ff;
 }
 
 .rank h2{
-  text-align: center
+  text-align: center;
 }
 .rank ol{
   width: 250px;
@@ -53,4 +60,9 @@
 .rank li{
   font-size: x-large;
   line-height: 30px;
+}
+
+/*-----Question_photo-----*/
+#img {
+  margin-left: 20px;
 }
