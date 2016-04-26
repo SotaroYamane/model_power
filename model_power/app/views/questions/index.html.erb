@@ -3,11 +3,15 @@
 <h1>問題選択</h1>
 
 <% @questions.each do |question| %>
+  <% if question.qid == 1 then true %>
+    <p>
+  <% elsif question.qid == 6 then true %>
+    <p></p>
+  <% end %>
+  
   <% if @answered.value?(question.qid) == true then %>
-      <p><%= link_to question.qid, :controller => 'results', :action => 'show', :id => question.qid %></p>
+      <%= link_to image_tag(question.z), :controller => 'results', :action => 'show', :id => question.qid %>
   <% else %>
-      <p><%= link_to question.qid, question %></p>
+      <%= link_to image_tag(question.z), question %>
   <% end %>
 <% end %>
-
-<!-- <%= link_to 'New Question', new_question_path %> -->
