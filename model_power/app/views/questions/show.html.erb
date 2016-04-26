@@ -18,10 +18,9 @@
   <tbody>
     <tr>
       <td><%= link_to image_tag(@question.a), :controller => 'questions', :action => 'new', :qid => @question.qid, :ans => "a" %></td>
-<!--       <td><%= link_to image_tag(@question.a), "questions", :method => "POST", :ans => "a" %></td>
-      <td><%= link_to image_tag(@question.b), "question#create", :method => "POST", :qid => @question.qid, :ans => "b" %></td>
-      <td><%= link_to image_tag(@question.c), "question#create", :method => "POST", :qid => @question.qid, :ans => "c" %></td>
-      <td><%= link_to image_tag(@question.d), "question#create", :method => "POST", :qid => @question.qid, :ans => "d" %></td> -->
+      <td><%= link_to image_tag(@question.b), :controller => 'questions', :action => 'new', :qid => @question.qid, :ans => "b" %></td>
+      <td><%= link_to image_tag(@question.c), :controller => 'questions', :action => 'new', :qid => @question.qid, :ans => "c" %></td>
+      <td><%= link_to image_tag(@question.d), :controller => 'questions', :action => 'new', :qid => @question.qid, :ans => "d" %></td>
     </tr>
   </tbody>
 </table>
