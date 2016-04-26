@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :results
-  resources :questions
-  resources :users
+  resources :results, :only => [:show]
+  resources :questions, :only => [:index, :show, :new]
+  resources :users, :except => [:show]
   resource :login
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

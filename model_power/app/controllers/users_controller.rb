@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  require 'pp'
-
+  before_action :unless_user
   before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /users
@@ -38,11 +37,6 @@ class UsersController < ApplicationController
 
   end
 
-  # GET /users/1
-  # GET /users/1.json
-  def show
-  end
-
   # GET /users/new
   def new
     @user = User.new
@@ -61,14 +55,14 @@ class UsersController < ApplicationController
       begin
         if @user.save
           session[:user_id] = @user.uid
-          format.html { redirect_to @user, notice: 'やったぜ' }
+          format.html { redirect_to @user, notice: 'ようこそ！' }
           format.json { render :show, status: :created, location: @user }
         else
           format.html { render :new }
           format.json { render json: @user.errors, status: :unprocessable_entity }
         end
       rescue
-        format.html { render :new, notice: "ユーザ名が重複しちゃったゴメン" }
+        format.html { render :new, notice: "UserIDが重複しちゃったゴメン" }
       end
     end
   end

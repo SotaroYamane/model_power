@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1>Q.<%= @result[0].qid %></h1>
-<h2>アナタの回答は<%= @result[0].ans %>です。</h2>
+<h2><%= image_tag(@photos[0]['z']) %>
+<h2>アナタの回答は[<%= @result[0].ans %>].<%= image_tag(@photos[0][@result[0].ans]) %>です。</h2>
 
 <%= high_chart("分布図", @graph) %>
 

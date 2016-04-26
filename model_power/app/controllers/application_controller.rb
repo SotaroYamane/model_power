@@ -10,5 +10,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def unless_user
+    unless @current_user
+      redirect_to root_path
+    end
+  end
+
   helper_method :current_user
 end
