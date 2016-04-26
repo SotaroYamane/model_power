@@ -3,6 +3,7 @@
 <head>
   <title>ModelPower</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    "style", media: 'all' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -18,7 +19,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <p class="navbar-brand" ><%= link_to "模範力測定", root_path %></p>
+            <p class="navbar-brand" ><%= link_to "模範力測定", users_path %></p>
         </div>
 
         <!-- ナビゲーションメニュー -->

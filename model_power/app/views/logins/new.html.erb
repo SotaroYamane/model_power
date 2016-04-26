@@ -1,7 +1,9 @@
-<h1>ログイン画面</h1>
+<div class = "login" >
+<h1>ログイン</h1>
 
 <!-- フラッシュ変数のメッセージを表示（ログインエラー時のみ） -->
 <p><font color=red><%= flash[:alert] %></font></p>
+</div>
 <%= form_tag login_path do %>
   <table id="login_form">
     <tr>
@@ -15,8 +17,7 @@
     </tr>
 
     <tr>
-      <td><%= submit_tag "ログイン" %></td>
+      <td><%= submit_tag "ログイン" %>&ensp;&ensp;<%= link_to '新規登録', new_user_path %></td>
     </tr>
   </table>
-  <%= link_to '新規登録', new_user_path %>
 <% end %>

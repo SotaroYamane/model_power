@@ -1,0 +1,56 @@
+/*-----login-----*/
+.login {
+  text-align:center;
+}
+
+#login_form {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/*-----user_page-----*/
+.all {
+  background-color: #e0f9e1;
+}
+
+#title {
+  width: 400px;
+  margin: 0;
+  background-color: #e0f9e1;
+}
+#title h1{
+  width: 400px;
+}
+
+#user_info {
+  width: 200px;
+  margin-left: auto;
+  margin-right: 0px;
+  background-color: #e0f9e1
+}
+#user_info ul{
+  width: 200px;
+}
+
+.power {
+  text-align: center;
+  background-color: #ffff8e;
+}
+
+.rank {
+  background-color: #a8f7d1;
+}
+
+.rank h2{
+  text-align: center
+}
+.rank ol{
+  width: 250px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rank li{
+  font-size: x-large;
+  line-height: 30px;
+}
