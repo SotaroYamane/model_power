@@ -12,25 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :uid,"User ID" %><br>
+    <%= f.label :uid,"ユーザID" %><br>
     <%= f.text_field :uid %>
   </div>
   <div class="field">
-    <%= f.label :password, "Password" %><br>
+    <%= f.label :password, "パスワード" %><br>
     <%= f.password_field :password %>
   </div>
   <div class="field">
     <%= f.radio_button :sex, "0" %><text>女性</text><%= f.radio_button :sex, "1" %><text>男性</text>
   </div>
   <div class="field">
-    <%= f.label :age %><br>
+    <%= f.label :age, "年齢" %><br>
     <%= f.number_field :age %>
   </div>
   <div class="field">
-    <%= f.label :name, "ニックネーム" %><br>
+    <%= f.label :name, "ニックネーム ※ランキングに表示されます。" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "新規作成" %>
   </div>
 <% end %>

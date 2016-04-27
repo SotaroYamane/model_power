@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  require 'pp'
   before_action :unless_user
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
@@ -29,28 +30,16 @@ class QuestionsController < ApplicationController
     if Result.find_by_sql(["select * from results where qid = ? AND uid = ?", params[:qid], @current_user.uid]).empty?
       if @result.save
         @user = User.find_by(uid: @current_user.uid)
-        model_power = 0
-        user_results = Result.find_by_sql(["select * from results where uid = ?", @current_user.uid])
-        all_results = Result.all
-        q_length = Question.count
-        cal_big = Array.new
-
-    #-----Array + Hashの入れ物作成-----
-        i = 1
-        while i < q_length + 1
-          cal_big.insert(i, {"a" => 0, "b" => 0, "c" => 0, "d" => 0})
-          i += 1
-        end
+        all_results = Result.find_by_sql(["select * from results where qid = ?", params[:qid]])
+        cal_big = {"a" => 0, "b" => 0, "c" => 0, "d" => 0}
+        
     #-----全部の集計-----
         all_results.each do |result|
-          cal_big[result.qid][result.ans] += 1
+          cal_big[result.ans] += 1
         end
 
     #-----標準力測定-----
-        user_results.each do |result|
-          model_power += cal_big[result.qid][result.ans]
-        end
-        @user.score = model_power
+        @user.score += cal_big[@result.ans]
         @user.save
 
     #-----redirect-----

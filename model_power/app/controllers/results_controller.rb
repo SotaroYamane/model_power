@@ -1,5 +1,4 @@
 class ResultsController < ApplicationController
-  require 'pp'
   before_action :unless_user
   before_action :set_result, only: [:show, :edit, :update, :destroy]
 
@@ -23,7 +22,6 @@ class ResultsController < ApplicationController
     @graph = LazyHighCharts::HighChart.new('graph') do |f|
       f.series(name: '投票数', data: data, type: 'pie')
     end
-    pp @photos[0][@result[0].ans]
 
   end
 
