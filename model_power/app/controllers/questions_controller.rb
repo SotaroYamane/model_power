@@ -26,7 +26,37 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @result = Result.new(:qid => params[:qid], :uid => @current_user.uid, :ans => params[:ans])
-    if @result.save
+    if Result.find_by_sql(["select * from results where qid = ? AND uid = ?", params[:qid], @current_user.uid]).empty?
+      if @result.save
+        @user = User.find_by(uid: @current_user.uid)
+        model_power = 0
+        user_results = Result.find_by_sql(["select * from results where uid = ?", @current_user.uid])
+        all_results = Result.all
+        q_length = Question.count
+        cal_big = Array.new
+
+    #-----Array + Hashの入れ物作成-----
+        i = 1
+        while i < q_length + 1
+          cal_big.insert(i, {"a" => 0, "b" => 0, "c" => 0, "d" => 0})
+          i += 1
+        end
+    #-----全部の集計-----
+        all_results.each do |result|
+          cal_big[result.qid][result.ans] += 1
+        end
+
+    #-----標準力測定-----
+        user_results.each do |result|
+          model_power += cal_big[result.qid][result.ans]
+        end
+        @user.score = model_power
+        @user.save
+
+    #-----redirect-----
+        redirect_to :controller => "results", :action => "show" ,:id => @result.qid
+      end
+    else
       redirect_to :controller => "results", :action => "show" ,:id => @result.qid
     end
   end

@@ -1,9 +1,18 @@
+<script type="text/javascript">
+    history.pushState(null, null, null);
+
+    window.addEventListener("popstate", function() {
+        history.pushState(null, null, null);
+    });
+</script>
+
 <p id="notice"><%= notice %></p>
 <p>ご協力感謝いたします。</p>
+<h3><%= link_to 'マイページ', users_path %>&ensp;|&ensp;<%= link_to '問題選択', questions_path %></h3>
 <h1>Q.<%= @result[0].qid %></h1>
-<h2><%= image_tag(@photos[0]['z']) %>
-<h2>アナタの回答は[<%= @result[0].ans %>].<%= image_tag(@photos[0][@result[0].ans]) %>です。</h2>
+<h3>[Q]<%= image_tag(@photos[0]['z']) %>&emsp;&emsp;[a]<%= image_tag(@photos[0]['a']) %>&ensp;[b]<%= image_tag(@photos[0]['b']) %>&ensp;[c]<%= image_tag(@photos[0]['c']) %>&ensp;[d]<%= image_tag(@photos[0]['d']) %>
+<h2>アナタの回答は[<%= @result[0].ans %>]<%= image_tag(@photos[0][@result[0].ans]) %>です。</h2>
 
 <%= high_chart("分布図", @graph) %>
 
-<h2><%= link_to '問題一覧へ', questions_path %></h2>
+<h3><%= link_to 'マイページ', users_path %>&ensp;|&ensp;<%= link_to '問題選択', questions_path %></h3>
