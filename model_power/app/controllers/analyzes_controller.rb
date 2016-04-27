@@ -5,6 +5,35 @@ class AnalyzesController < ApplicationController
   # GET /analyzes.json
   def index
     @questios = Question.all
+    user_all = User.all
+    all_results = Result.all
+    q_length = Question.count
+
+    user_all.each do |user|
+      model_power = 0
+      user_results = Result.find_by_sql(["select * from results where uid = ?", user.uid])
+      cal_big = Array.new
+
+#-----Array + Hashの入れ物作成-----
+      i = 1
+      while i < q_length + 1
+        cal_big.insert(i, {"a" => 0, "b" => 0, "c" => 0, "d" => 0})
+        i += 1
+      end
+#-----全部の集計-----
+      all_results.each do |result|
+        cal_big[result.qid][result.ans] += 1
+      end
+
+#-----標準力測定-----
+      user_results.each do |result|
+        model_power += cal_big[result.qid][result.ans]
+      end
+      user.score = model_power
+      user.save
+
+    end
+
   end
 
 

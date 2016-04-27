@@ -31,10 +31,9 @@ class UsersController < ApplicationController
 
 #-----ランキング-----
 #上位20人 + 自分の順位
-    @all_rank = User.find_by_sql(["select name, score from users order by score DESC LIMIT 20"])
-    @user_rank = User.find_by_sql(["select uid, score from users where score >= ?", @user.score]).count
-
-
+    @all_rank = User.find_by_sql(["select name, score from users order by score DESC LIMIT 10"])
+    @user_rank = User.find_by_sql(["select uid, score from users where score > ?", @user.score]).count
+    @user_rank += 1;
   end
 
   # GET /users/new
