@@ -1,4 +1,5 @@
 class AnalyzesController < ApplicationController
+  before_action :unless_user
 
   # GET /analyzes
   # GET /analyzes.json

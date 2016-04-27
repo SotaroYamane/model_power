@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :results, :only => [:show]
   resources :questions, :only => [:index, :show, :new]
-  resources :users, :except => [:show]
+  resources :users, :only => [:index, :new, :create]
   resources :analyzes, :only => [:index, :show]
   resource :login
 

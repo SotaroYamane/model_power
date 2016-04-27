@@ -1,6 +1,9 @@
 <div class = "all">
 <div id = "title" >
   <h1><%= @user.name %>さんのマイページ</h1>
+  <% if @user.admin %>
+    <%= link_to "解析のページ", analyzes_path %>
+  <% end %>
 </div>
 <div id = "user_info" >
   <ul>

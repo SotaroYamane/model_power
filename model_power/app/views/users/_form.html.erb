@@ -20,15 +20,16 @@
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.radio_button :sex, "0" %><text>女性</text><%= f.radio_button :sex, "1" %><text>男性</text>
+    <%= f.radio_button :sex, "0" %><text>女性</text>&ensp;<%= f.radio_button :sex, "1" %><text>男性</text>
   </div>
   <div class="field">
     <%= f.label :age, "年齢" %><br>
     <%= f.number_field :age %>
   </div>
   <div class="field">
-    <%= f.label :name, "ニックネーム ※ランキングに表示されます。" %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name, "ニックネーム" %><br>
+    <%= f.text_field :name %><br>
+    <text>※ランキングに表示されます※</text>
   </div>
   <div class="actions">
     <%= f.submit "新規作成" %>

@@ -71,3 +71,13 @@ body {
 .analyze h2{
   text-align: center;
 }
+
+/*-----Create_User-----*/
+.new_user {
+  text-align:center;
+}
+
+.field {
+  margin-right: auto;
+  margin-left: auto;
+}
