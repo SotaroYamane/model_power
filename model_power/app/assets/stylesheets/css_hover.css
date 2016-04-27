@@ -38,8 +38,8 @@
 
 .fourth-effect .mask {
    position:absolute; /* Center the mask */
-   top:50px;
-   left:100px;
+   top:25px;
+   left:11px;
    cursor:pointer;
    border-radius: 50px;
    border-width: 50px;
@@ -50,8 +50,8 @@
    box-sizing:border-box;
    opacity:1;
    visibility:visible;
-   transform:scale(4);
-   transition:all 0.3s ease-in-out;
+   transform:scale(1.9);
+   transition:all 0.13s ease-in;
 }
 
 .fourth-effect:hover .mask {
