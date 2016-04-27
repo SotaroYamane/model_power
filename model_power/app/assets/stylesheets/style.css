@@ -66,3 +66,8 @@ body {
 #img {
   margin-left: 20px;
 }
+
+/*-----Analyze-----*/
+.analyze h2{
+  text-align: center;
+}

@@ -1,5 +1,4 @@
 class QuestionsController < ApplicationController
-  require 'pp'
   before_action :unless_user
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
@@ -32,7 +31,7 @@ class QuestionsController < ApplicationController
         @user = User.find_by(uid: @current_user.uid)
         all_results = Result.find_by_sql(["select * from results where qid = ?", params[:qid]])
         cal_big = {"a" => 0, "b" => 0, "c" => 0, "d" => 0}
-        
+
     #-----全部の集計-----
         all_results.each do |result|
           cal_big[result.ans] += 1

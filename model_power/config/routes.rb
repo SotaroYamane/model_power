@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :results, :only => [:show]
   resources :questions, :only => [:index, :show, :new]
   resources :users, :except => [:show]
+  resources :analyzes, :only => [:index, :show]
   resource :login
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<div class = "analyze">
+  <h3>[Q]<%= image_tag(@photos[0]['z']) %>&emsp;&emsp;[a]<%= image_tag(@photos[0]['a']) %>&ensp;[b]<%= image_tag(@photos[0]['b']) %>&ensp;[c]<%= image_tag(@photos[0]['c']) %>&ensp;[d]<%= image_tag(@photos[0]['d']) %>
+    <h2>女性</h2>
+    <%= high_chart("女性", @graph_women) %>
+
+    <h2>男性</h2>
+    <%= high_chart("男性", @graph_men) %>
+
+    <h2><%= link_to 'マイページ', users_path %></h2>
+</div>
