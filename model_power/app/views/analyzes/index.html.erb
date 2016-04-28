@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>解析のページ</h1>
+<h1>解析のページ
+<%= link_to "スコア更新", :controller => 'analyzes', :action => 'new' %>
+</h1>
+
 
   <% @questios.each do |question| %>
       <div class="view fourth-effect"><%= link_to image_tag(question.z), :controller => 'analyzes', :action => 'show', :id => question.qid %>

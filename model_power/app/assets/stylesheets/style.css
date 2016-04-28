@@ -23,10 +23,8 @@ body {
 
 #title {
   margin: 0;
-  background-color: #f2f7f2;
-}
-#title h1{
   text-align: center;
+  background-color: #f2f7f2;
 }
 
 #user_info {

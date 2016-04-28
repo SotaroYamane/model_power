@@ -5,35 +5,6 @@ class AnalyzesController < ApplicationController
   # GET /analyzes.json
   def index
     @questios = Question.all
-    user_all = User.all
-    all_results = Result.all
-    q_length = Question.count
-
-    user_all.each do |user|
-      model_power = 0
-      user_results = Result.find_by_sql(["select * from results where uid = ?", user.uid])
-      cal_big = Array.new
-
-#-----Array + Hashの入れ物作成-----
-      i = 1
-      while i < q_length + 1
-        cal_big.insert(i, {"a" => 0, "b" => 0, "c" => 0, "d" => 0})
-        i += 1
-      end
-#-----全部の集計-----
-      all_results.each do |result|
-        cal_big[result.qid][result.ans] += 1
-      end
-
-#-----標準力測定-----
-      user_results.each do |result|
-        model_power += cal_big[result.qid][result.ans]
-      end
-      user.score = model_power
-      user.save
-
-    end
-
   end
 
 
@@ -44,7 +15,7 @@ class AnalyzesController < ApplicationController
     cal_women = {"a" => 0, "b" => 0, "c" => 0, "d" => 0}
     cal_men = {"a" => 0, "b" => 0, "c" => 0, "d" => 0}
 
-#-----全部の集計-----
+#-----男女の集計-----
     women.each do |result|
       cal_women[result.ans] += 1
     end
@@ -70,5 +41,38 @@ class AnalyzesController < ApplicationController
       f.series(name: '投票数', data: data, type: 'pie')
     end
 
+  end
+
+  def new
+    user_all = User.all
+    all_results = Result.all
+    q_length = Question.count
+    cal_big = Array.new
+
+#-----Array + Hashの入れ物作成-----
+    i = 1
+    while i < q_length + 1
+      cal_big.insert(i, {"a" => 0, "b" => 0, "c" => 0, "d" => 0})
+      i += 1
+    end
+
+#-----全部の集計-----
+    all_results.each do |result|
+      cal_big[result.qid][result.ans] += 1
+    end
+
+#-----ユーザ毎に集計-----
+    user_all.each do |user|
+      model_power = 0
+      user_results = Result.find_by_sql(["select * from results where uid = ?", user.uid])
+
+#-----標準力測定-----
+      user_results.each do |u_result|
+        model_power += cal_big[u_result.qid][u_result.ans]
+      end
+      user.score = model_power
+      user.save
+    end
+    redirect_to analyzes_path
   end
 end
